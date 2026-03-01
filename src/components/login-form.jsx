@@ -1,4 +1,6 @@
+import useLogin from "@/hooks/userLogin";
 import { cn } from "@/lib/utils";
+import { authFormValidationSchema } from "@/validators/auth.validators";
 import { Formik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
@@ -11,16 +13,10 @@ import {
 } from "./ui/card";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "./ui/field";
 import { Input } from "./ui/input";
-import { authFormValidationSchema } from "@/validators/auth.validators";
-import useLogin from "@/hooks/userLogin";
 
 export function LoginForm({ className, ...props }) {
-  const { mutate, isPending, isError, error } = useLogin();
+  const { mutate, isPending } = useLogin();
   const navigate = useNavigate();
-
-  if (isError && error) {
-    throw error;
-  }
 
   const handleSubmit = (values, { resetForm }) => {
     mutate(

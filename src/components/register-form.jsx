@@ -15,12 +15,8 @@ import { authFormValidationSchema } from "@/validators/auth.validators";
 import useRegister from "@/hooks/useRegister";
 
 export function RegisterForm({ className, ...props }) {
-  const { mutate, isPending, isError, error } = useRegister();
+  const { mutate, isPending } = useRegister();
   const navigate = useNavigate();
-
-  if (isError && error) {
-    throw error;
-  }
 
   const handleSubmit = (values, { resetForm }) => {
     mutate(
