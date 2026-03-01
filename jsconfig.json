@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
+// https://stackoverflow.com/questions/79115798/shadcn-no-import-alias-found-in-your-tsconfig-json-file
